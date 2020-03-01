@@ -15,6 +15,7 @@ Example below is a fresh Ubuntu 18.04 LTS server in the cloud.
 ```
 git clone https://github.com/dantheman213/docker-vpn-stealth
 cd docker-vpn-stealth/bin
+chmod +x *
 ./setup.sh mydomain.com
 ```
 

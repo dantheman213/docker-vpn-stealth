@@ -31,9 +31,10 @@ echo "Generate OVPN config..."
 docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none --rm kylemanna/openvpn ovpn_genconfig -u tcp://$OVPN_DOMAIN:443
 
 echo "Generate OVPN keys and certificates..."
-docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none --rm -it kylemanna/openvpn ovpn_initpki nopass
+docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none -e EASYRSA_KEY_SIZE=4096 --rm -it kylemanna/openvpn ovpn_initpki nopass
 
 end=`date +%s`
 runtime=$((end-start))
+runtime_pretty=$(date -d@$runtime -u +%H:%M:%S)
 
-printf "\n\nTotal time is $runtime\nCOMPLETE!\n"
+printf "\n\nTotal time is $runtime.\nCOMPLETE!\n"
