@@ -42,6 +42,14 @@ After you've downloaded your *.ovpn file you can use a variety of OpenVPN client
 
 TODO
 
+### Compression
+
+```
+Compression and encryption is a tricky combination. If an attacker knows or is able to control (parts of) the plaintext of packets that contain secrets, the attacker might be able to extract the secret if compression is enabled. See e.g. the CRIME and BREACH attacks on TLS which also leverage compression to break encryption. If you are not entirely sure that the above does not apply to your traffic, you are advised to *not* enable compression.
+```
+
+https://community.openvpn.net/openvpn/wiki/Openvpn24ManPage
+
 ## Reference
 
 * https://github.com/kylemanna/docker-openvpn
@@ -51,3 +59,9 @@ TODO
 * https://discourse.criticalengineering.org/t/hiding-openvpn-traffic-from-network-opponents/418
 
 * https://openvpn.net/community-resources/reference-manual-for-openvpn-2-4/
+
+* https://security.stackexchange.com/questions/94390/whats-the-purpose-of-dh-parameters
+
+* https://stackoverflow.com/questions/10061532/why-chose-sha512-over-sha384
+
+* https://security.stackexchange.com/questions/184305/why-would-i-ever-use-aes-256-cbc-if-aes-256-gcm-is-more-secure
