@@ -13,8 +13,8 @@ Example below is a fresh Ubuntu 18.04 LTS server in the cloud.
 ### Setup
 
 ```
-git clone https://github.com/dantheman213/docker-vpn-stealth
-cd docker-vpn-stealth/bin
+git clone https://github.com/dantheman213/docker-vpn-stealth /opt/vpn
+cd /opt/vpn/bin
 chmod +x *
 ./setup.sh mydomain.com
 ```
