@@ -26,9 +26,12 @@ ufw allow 22
 ufw allow 443/tcp
 ufw --force enable # non-interactive
 
+echo "Configuring nginx subterfuge proxy..."
+docker run -v /etc/nginx:/etc/nginx -d -p 8443:80/tcp --restart=always nginx:latest
+
 echo "Grab DockerHub VPN image..."
 echo "Generate OVPN config..."
-docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none --rm kylemanna/openvpn ovpn_genconfig -u tcp://$OVPN_DOMAIN:443
+docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none --rm kylemanna/openvpn ovpn_genconfig -u tcp://$OVPN_DOMAIN:443 -e 'port-share localhost 8433'
 
 echo "Generate OVPN keys and certificates..."
 docker run -v $OVPN_CONFIG_PATH:/etc/openvpn --log-driver=none --net=none -e EASYRSA_KEY_SIZE=4096 --rm -it kylemanna/openvpn ovpn_initpki nopass
