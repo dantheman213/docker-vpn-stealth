@@ -37,4 +37,4 @@ end=`date +%s`
 runtime=$((end-start))
 runtime_pretty=$(date -d@$runtime -u +%H:%M:%S)
 
-printf "\n\nTotal time is $runtime.\nCOMPLETE!\n"
+printf "\n\nTotal time is $runtime_pretty.\nCOMPLETE!\n"
