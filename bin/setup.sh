@@ -2,6 +2,7 @@
 
 if [ -z "$1" ]; then
     echo "Provide domain where VPN will be hosted at. (e.g. subdomain.mydomain.com or mydomain.com)"
+    exit 1
 fi
 
 mkdir -p /etc/openvpn/creds
