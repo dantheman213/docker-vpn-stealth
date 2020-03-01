@@ -21,6 +21,8 @@ chmod +x *
 
 When prompted for a Common Name press `[ENTER]` without any other input.
 
+NOTE: RSA 4096 bit encryption DH param generation can take ~30 minutes or so to generate on a $5 DigitalOcean VM.
+
 ### Start Service
 
 ```
