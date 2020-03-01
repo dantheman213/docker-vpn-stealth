@@ -1,6 +1,6 @@
 # docker-vpn-stealth
 
-Turn-key deploy anonymous VPN that can be accessed from very restricted networks by mimicing standard TLS traffic on HTTPS port.
+Turn-key deploy anonymous VPN that can be accessed from very restricted networks by mimicking standard TLS traffic on HTTPS port.
 
 ## How It Works
 
